@@ -192,7 +192,8 @@ function trendNote(jan, fev, mar, ind) {
   var d = m - base;
   var dir = d > 0 ? '▲' : d < 0 ? '▼' : '=';
   var td = trendDir(jan, fev, mar, ind);
-  return dir + ' ' + (td === 'up' ? 'melhora' : td === 'dn' ? 'piora' : 'estável') + ' vs ' + bL;
+  var baseFormatted = fmt(isNaN(f) ? String(jan) : String(fev), ind);
+  return dir + ' ' + (td === 'up' ? 'melhora' : td === 'dn' ? 'piora' : 'estável') + ' vs ' + bL + ' (' + baseFormatted + ')';
 }
 
 function parseCSV(text) {
